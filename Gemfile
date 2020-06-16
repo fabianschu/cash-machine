@@ -8,6 +8,9 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.1'
 gem 'bootstrap-sass'
 
 gem "simple_form"
+gem 'country_select'
+gem 'load_and_authorize_resource'
+
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets

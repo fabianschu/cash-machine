@@ -1,0 +1,5 @@
+<%= simple_form_for( @invoice, :url=>customer_invoices_path(@customer)) do |f| %>
+  <%= f.input :name, label: 'Projektname' %>
+  <%= f.button :submit %>
+<% end %>
+
