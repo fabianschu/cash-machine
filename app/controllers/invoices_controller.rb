@@ -1,17 +1,27 @@
 class InvoicesController < ApplicationController
   def new
     @customer = Customer.find(params[:customer_id])
-    @invoice = Invoice.new
+    @invoice = @customer.invoices.build
+    @path = [@customer, @invoice]
   end
 
   def create
     @customer = Customer.find(params[:customer_id])
     @invoice = @customer.invoices.new(invoice_params)
     if @invoice.save
-      puts 'yes!!!!!!!!'
+      redirect_to @invoice
     else
-      puts 'no1!!!!!!!!'
+      redirect_to new_customer_invoice_path
     end
+  end
+
+  def show
+    @invoice = Invoice.find(params[:id])
+  end
+
+  def edit
+    @invoice = Invoice.find(params[:id])
+    @path = @invoice
   end
 
   private
