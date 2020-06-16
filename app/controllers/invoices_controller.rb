@@ -1,4 +1,6 @@
 class InvoicesController < ApplicationController
+  before_action :set_invoice, only: [:show, :edit, :update, :destroy]
+  
   def new
     @customer = Customer.find(params[:customer_id])
     @invoice = @customer.invoices.build
@@ -16,16 +18,30 @@ class InvoicesController < ApplicationController
   end
 
   def show
-    @invoice = Invoice.find(params[:id])
   end
 
   def edit
-    @invoice = Invoice.find(params[:id])
     @path = @invoice
+  end
+
+  def update
+    respond_to do |format|
+      if @invoice.update(invoice_params)
+        format.html { redirect_to @invoice, notice: 'Invoice was successfully updated.' }
+        format.json { render :show, status: :ok, location: @invoice }
+      else
+        format.html { render :edit }
+        format.json { render json: @invoice.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   private
     def invoice_params
       params.require(:invoice).permit(:name)
+    end
+
+    def set_invoice
+      @invoice = Invoice.find(params[:id])
     end
 end
