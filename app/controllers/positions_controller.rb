@@ -14,7 +14,10 @@ class PositionsController < ApplicationController
 
   # GET /positions/new
   def new
-    @position = Position.new
+    @invoice = Invoice.find(params[:invoice_id])
+    puts @invoice.name
+    @position = @invoice.positions.build
+    @path = [@invoice, @position]
   end
 
   # GET /positions/1/edit
@@ -24,16 +27,26 @@ class PositionsController < ApplicationController
   # POST /positions
   # POST /positions.json
   def create
+  
+    
     @position = Position.new(position_params)
 
-    respond_to do |format|
-      if @position.save
-        format.html { redirect_to @position, notice: 'Position was successfully created.' }
-        format.json { render :show, status: :created, location: @position }
-      else
-        format.html { render :new }
-        format.json { render json: @position.errors, status: :unprocessable_entity }
-      end
+    # respond_to do |format|
+    #   if @position.save
+    #     format.html { redirect_to @position, notice: 'Position was successfully created.' }
+    #     format.json { render :show, status: :created, location: @position }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @position.errors, status: :unprocessable_entity }
+    #   end
+    # end
+
+    @invoice = Invoice.find(params[:invoice_id])
+    @position = @invoice.positions.new(position_params)
+    if @position.save
+      redirect_to @invoice
+    else
+      redirect_to new_invoice_position_path
     end
   end
 
@@ -69,6 +82,7 @@ class PositionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def position_params
-      params.fetch(:position, {})
+      params.require(:position).permit(:name, :description, :hours)
     end
+
 end

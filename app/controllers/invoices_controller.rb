@@ -1,6 +1,10 @@
 class InvoicesController < ApplicationController
   before_action :set_invoice, only: [:show, :edit, :update, :destroy]
   
+  def index
+    redirect_to customer_path(params[:customer_id])
+  end
+
   def new
     @customer = Customer.find(params[:customer_id])
     @invoice = @customer.invoices.build
@@ -38,7 +42,7 @@ class InvoicesController < ApplicationController
 
   private
     def invoice_params
-      params.require(:invoice).permit(:name)
+      params.require(:invoice).permit(:name, :created_at, :updated_at)
     end
 
     def set_invoice
