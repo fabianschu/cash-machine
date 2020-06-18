@@ -1,1 +1,3 @@
 <h5><%= @invoice.name %></h5>
+
+<%= link_to 'Rechnungen', customer_invoices_path(@invoice.customer) %>

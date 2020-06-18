@@ -42,6 +42,10 @@ GEM
       globalid (>= 0.3.6)
     activemodel (6.0.3.1)
       activesupport (= 6.0.3.1)
+    activemodel-serializers-xml (1.0.2)
+      activemodel (> 5.x)
+      activesupport (> 5.x)
+      builder (~> 3.1)
     activerecord (6.0.3.1)
       activemodel (= 6.0.3.1)
       activesupport (= 6.0.3.1)
@@ -86,6 +90,12 @@ GEM
       countries (~> 3.0)
       sort_alphabetical (~> 1.0)
     crass (1.0.6)
+    draper (4.0.1)
+      actionpack (>= 5.0)
+      activemodel (>= 5.0)
+      activemodel-serializers-xml (>= 1.0)
+      activesupport (>= 5.0)
+      request_store (>= 1.0)
     erubi (1.9.0)
     execjs (2.7.0)
     ffi (1.13.1)
@@ -157,6 +167,8 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (1.7.1)
+    request_store (1.5.0)
+      rack (>= 1.4)
     rubyzip (2.3.0)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
@@ -227,6 +239,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   country_select
+  draper
   jbuilder (~> 2.7)
   listen (~> 3.2)
   load_and_authorize_resource

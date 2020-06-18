@@ -10,6 +10,7 @@ gem 'bootstrap-sass'
 gem "simple_form"
 gem 'country_select'
 gem 'load_and_authorize_resource'
+gem 'draper'
 
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
