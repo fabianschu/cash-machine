@@ -22,6 +22,13 @@ class InvoicesController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "invoice_pdf",
+        layout: "pdf"
+      end
+    end
   end
 
   def edit
@@ -36,6 +43,16 @@ class InvoicesController < ApplicationController
       else
         format.html { render :edit }
         format.json { render json: @invoice.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def invoice_pdf
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "invoice_pdf",
+        layout: "pdf"
       end
     end
   end

@@ -7,6 +7,6 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'static_pdf' => 'invoice_pdfs#index'
+  get 'invoices/:id/pdf' => 'invoices#invoice_pdf'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
