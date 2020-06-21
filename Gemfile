@@ -11,6 +11,9 @@ gem "simple_form"
 gem 'country_select'
 gem 'load_and_authorize_resource'
 gem 'draper'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
