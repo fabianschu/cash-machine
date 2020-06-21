@@ -4,7 +4,7 @@ class InvoicePdfsController < ApplicationController
       format.html
       format.pdf do
         render pdf: "index",
-        disposition: 'attachment'
+        layout: "pdf"
       end
     end
   end
