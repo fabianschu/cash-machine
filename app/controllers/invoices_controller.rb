@@ -22,6 +22,8 @@ class InvoicesController < ApplicationController
   end
 
   def show
+    @customer = Customer.find(@invoice.customer_id)
+    puts @customer.first_name
     respond_to do |format|
       format.html
       format.pdf do

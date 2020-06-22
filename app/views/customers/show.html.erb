@@ -1,46 +1,60 @@
 <p id="notice"><%= notice %></p>
 
-<div class="card" style="width: 18rem;">
-  <div class="card-header">
-    <strong><%= formal_customer(@customer) %></strong>
+<div class="cus-content-container row">
+  <div class="card shadow cus-card col-sm-4 mr-auto">
+    <div class="card-header">
+      <strong><%= formal_customer(@customer) %></strong>
+    </div>
+    <ul class="list-group list-group-flush">
+      <%= showCustomerName?(@customer) %>
+      <li class="list-group-item d-flex justify-content-between">
+        <strong>Straße:</strong> <%= @customer.street%>
+      </li>
+      <li class="list-group-item d-flex justify-content-between">
+        <strong>Postleitzahl:</strong> <%= @customer.zip%>
+      </li>
+      <li class="list-group-item d-flex justify-content-between">
+        <strong>Ort:</strong> <%= @customer.city%>
+      </li>
+      <li class="list-group-item d-flex justify-content-between">
+        <strong>Land:</strong> <%= @customer.country%>
+      </li>
+    </ul>
+    <div class="card-body">
+      <%= link_to "Bearbeiten", edit_customer_path(@customer) %>
+    </div>
   </div>
-  <ul class="list-group list-group-flush">
-    <%= showCustomerName?(@customer) %>
-    <li class="list-group-item d-flex justify-content-between">
-      <strong>Straße:</strong> <%= @customer.street%>
-    </li>
-    <li class="list-group-item d-flex justify-content-between">
-      <strong>Postleitzahl:</strong> <%= @customer.zip%>
-    </li>
-    <li class="list-group-item d-flex justify-content-between">
-      <strong>Ort:</strong> <%= @customer.city%>
-    </li>
-    <li class="list-group-item d-flex justify-content-between">
-      <strong>Land:</strong> <%= @customer.country%>
-    </li>
-  </ul>
-  <div class="card-body">
-    <%= link_to "Bearbeiten", edit_customer_path(@customer) %>
+
+  <div class="card shadow cus-card col-sm-7 ml-auto">
+    <div class="card-header">
+      <strong>Rechnungen</strong>
+    </div>
+    <table class="table ">
+      <tbody>
+        <% @customer.invoices.each do |invoice| %>
+        <tr class="cus-row" id=<%= invoice.id %>>
+          <td ><%= invoice.name %></td>
+          <td ><%= invoice.created_at %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <!-- <table class="rounded table-bordered cus-table">
+
+      <tbody>
+        <% @customer.invoices.each do |invoice| %>
+          <tr>
+            <td><%= invoice.name %></td>
+            <th scope="row">lol</th>
+            <td><%= link_to 'Öffnen', invoice, class: "link" %></td>
+          </tr>
+        <% end %> 
+      </tbody>
+    </table> -->
   </div>
-</div>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3">Rechnungsname</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @customer.invoices.each do |invoice| %>
-      <tr>
-        <td><%= invoice.name %></td>
-        <td><%= link_to 'Öffnen', invoice %></td>
-      </tr>
-    <% end %> 
-  </tbody>
-</table>
+  </div>
+  
+  
 
 <%= link_to 'Neue Rechnung', new_customer_invoice_path(@customer) %>
 <%= link_to 'Back', customers_path %>

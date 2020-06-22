@@ -10,7 +10,9 @@ module CustomersHelper
   def showCustomerName?(customer)
     unless @customer.company.empty?
       customer_full_name =  @customer.first_name + ' ' + @customer.second_name
-      content_tag(:li, customer_full_name, class: "list-group-item d-flex justify-content-between")
+      content_tag :li, class: "list-group-item d-flex justify-content-between" do
+        content_tag(:strong, "Name: ") + content_tag(:span, customer_full_name)
+      end
     end
   end
 end

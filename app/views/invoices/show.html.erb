@@ -3,11 +3,22 @@
 <p>Erstellt: <%= @invoice.created_at %></p>
 <p>Zuletzt bearbeitet: <%= @invoice.updated_at %></p>
 
+
 <% @invoice.positions.each do |position| %>
-  <%= position.name %>
-  <%= position.description %>
-  <%= position.hours %>
+  <h4>Positions</h4>
+  <span><%= position.name %></span>
+  <span><%= position.description %></span>
+  <span><%= position.hours %></span>
 <% end %>
+<br>
+
+
+  <h4>
+    Customer:
+  </h4>
+  <p><%= @customer.first_name %> <%= @customer.second_name %></p>
+  <p><%= @customer.street %> <br><%= @customer.zip %> <%= @customer.city %></p>
+
 
 <%= link_to 'Neue Position', new_invoice_position_path(@invoice) %>
 <%= link_to 'Zurück zum Kunden', customer_path(@invoice.customer) %>

@@ -1,3 +1,33 @@
 // Place all the styles related to the Customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.cus-content-container {
+  padding: 0 50px;
+}
+
+.cus-table-header {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.cus-card {
+  padding: 0;
+}
+
+.cus-table {
+  width: 100%;
+}
+
+.link {
+  background-color: red;
+  width: 100%;
+  height: 100%;
+}
+
+.cus-row {
+  width: 100%;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+    cursor: pointer;
+  }
+}
