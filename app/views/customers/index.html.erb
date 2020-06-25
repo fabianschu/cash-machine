@@ -12,7 +12,7 @@
   </thead>
 
   <tbody>
-    <% @customers.each do |customer| %>
+    <% sort_by_last_update(@customers).each do |customer| %>
       <tr scope="row">
         <td><%= formal_customer(customer) %></td>
         <td><%= link_to 'Anzeigen', customer %></td>
