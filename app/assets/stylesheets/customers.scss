@@ -8,10 +8,15 @@
 
 .cus-table-header {
   background-color: rgba(0, 0, 0, 0.03);
+  border: none;
+  th {
+    border: none;
+  }
 }
 
 .cus-card {
   padding: 0;
+  margin-bottom: 20px;
 }
 
 .cus-table {
@@ -24,8 +29,7 @@
   height: 100%;
 }
 
-.cus-row {
-  width: 100%;
+.clickable {
   &:hover {
     background-color: rgba(0, 0, 0, 0.03);
     cursor: pointer;

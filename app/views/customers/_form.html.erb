@@ -1,12 +1,11 @@
 <%= simple_form_for @customer do |f| %>
-  <%= f.input :company, label: 'Firma' %>
-  <%= f.input :first_name, label: 'Vorname' %>
-  <%= f.input :second_name, label: 'Nachname' %>
-  <%= f.input :street, label: 'Straße' %>
-  <%= f.input :zip, label: 'Postleitzahl' %>
-  <%= f.input :hourly_rate, label: 'Stundensatz', 
-  collection: ['40', '50'], default: '40' %>
-  <%= f.input :country, collection: ['Deutschland', 'Österreich'], default: 'Deutschland' %>
-  <%= f.button :submit %>
-<% end %>
-
+    <%= f.input :company, label: 'Firma' %>
+    <%= f.input :first_name, label: 'Vorname' %>
+    <%= f.input :second_name, label: 'Nachname' %>
+    <%= f.input :street, label: 'Straße' %>
+    <%= f.input :zip, label: 'Postleitzahl' %>
+    <%= f.input :hourly_rate, label: 'Stundensatz', 
+    collection: ['40', '50'], default: '40' %>
+    <%= f.input :country, collection: ['Deutschland', 'Österreich'], default: 'Deutschland' %>
+    <%= f.button :submit %>
+  <% end %>

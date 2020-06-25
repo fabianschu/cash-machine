@@ -20,7 +20,7 @@
         <strong>Land:</strong> <%= @customer.country%>
       </li>
     </ul>
-    <div class="card-body">
+    <div class="card-body clickable" id="edit-customer" data-href=<%= edit_customer_path %>>
       <%= link_to "Bearbeiten", edit_customer_path(@customer) %>
     </div>
   </div>
@@ -29,32 +29,34 @@
     <div class="card-header">
       <strong>Rechnungen</strong>
     </div>
-    <table class="table ">
+    <table class="table">
+      <thead>
+        <tr class="cus-table-header">
+          <th>
+            Projektname
+          </th>
+          <th>
+            Zuletzt bearbeitet
+          </th>
+          <th>
+            Status
+          </th>
+        </tr>
+      </thead>
       <tbody>
         <% @customer.invoices.each do |invoice| %>
-        <tr class="cus-row" id=<%= invoice.id %>>
-          <td ><%= invoice.name %></td>
-          <td ><%= invoice.created_at %></td>
-        </tr>
+          <tr class="clickable">
+            <td class="clickable-invoice" id=<%= invoice.id %> data-href=<%= invoice_path %> ><%= invoice.name %></td>
+            <td class="clickable-invoice" id=<%= invoice.id %> data-href=<%= invoice_path %> ><%= invoice.created_at %></td>
+            <td class="clickable-invoice" id=<%= invoice.id %> data-href=<%= invoice_path %> >bezahlt</td>
+          </tr>
         <% end %>
+        <tr>
+          <td colspan="3" class="clickable text-primary" id="new-invoice" data-href=<%= new_customer_invoice_path(@customer) %>> Neue Rechnung erstellen</td>
+        </tr>
       </tbody>
     </table>
-    <!-- <table class="rounded table-bordered cus-table">
-
-      <tbody>
-        <% @customer.invoices.each do |invoice| %>
-          <tr>
-            <td><%= invoice.name %></td>
-            <th scope="row">lol</th>
-            <td><%= link_to 'Öffnen', invoice, class: "link" %></td>
-          </tr>
-        <% end %> 
-      </tbody>
-    </table> -->
   </div>
   </div>
   
   
-
-<%= link_to 'Neue Rechnung', new_customer_invoice_path(@customer) %>
-<%= link_to 'Back', customers_path %>
