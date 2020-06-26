@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.test {
-  background-color: red;
+.invoice-meta-line {
+  display: flex;
+  justify-content: space-between;
+}
+
+.invoice-meta-tag {
+  padding-right: 12px;
 }

@@ -1,24 +1,66 @@
-<h5>Rechungsbetreff: <%= @invoice.name %></h5>
+<div class="cus-content-container">
+  <div class="card shadow cus-card">
+    <div class="card-header">
+      <div class = "invoice-meta">
+        <table>
+          <tr>
+            <td class="invoice-meta-tag">Rechnung:</td>
+            <td><%= @invoice.name %></td>
+          </tr>
+          <tr>
+            <td class="invoice-meta-tag"></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="invoice-meta-tag">Erstellt:</td>
+            <td><%= formatted_date(@invoice.created_at) %></td>
+          </tr>
+          <tr>
+            <td class="invoice-meta-tag">Zuletzt Bearbeitet:</td>
+            <td><%= formatted_date(@invoice.updated_at) %></td>
+          </tr>
+          <tr>
+            <td class="invoice-meta-tag">Total:</td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <table class="table">
+      <thead>
+        <tr class="cus-table-header">
+          <th>
+            Position
+          </th>
+          <th>
+            Beschreibung
+          </th>
+          <th>
+            Stunden
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @invoice.positions.each do |position| %>
+          <tr class="clickable">
+            <td class="clickable-position" id=<%= position.id %> data-href=<%= position_path %> ><%= position.name %></td>
+            <td class="clickable-position" id=<%= position.id %> data-href=<%= position_path %> ><%= position.description %></td>
+            <td class="clickable-position" id=<%= position.id %> data-href=<%= position_path %> ><%= position.hours %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    
 
-<p>Erstellt: <%= @invoice.created_at %></p>
-<p>Zuletzt bearbeitet: <%= @invoice.updated_at %></p>
-
-
-<% @invoice.positions.each do |position| %>
-  <h4>Positions</h4>
-  <span><%= position.name %></span>
-  <span><%= position.description %></span>
-  <span><%= position.hours %></span>
-<% end %>
-<br>
-
-
-  <h4>
-    Customer:
-  </h4>
-  <p><%= @customer.first_name %> <%= @customer.second_name %></p>
-  <p><%= @customer.street %> <br><%= @customer.zip %> <%= @customer.city %></p>
-
-
-<%= link_to 'Neue Position', new_invoice_position_path(@invoice) %>
-<%= link_to 'Zurück zum Kunden', customer_path(@invoice.customer) %>
+    
+      <h4>
+        Customer:
+      </h4>
+      <p><%= @customer.first_name %> <%= @customer.second_name %></p>
+      <p><%= @customer.street %> <br><%= @customer.zip %> <%= @customer.city %></p>
+    
+    
+    <%= link_to 'Neue Position', new_invoice_position_path(@invoice) %>
+    <%= link_to 'Zurück zum Kunden', customer_path(@invoice.customer) %>
+  </div>
+</div>
