@@ -1,8 +1,13 @@
 @font-face {
-  font-family: "Pangolin";
-  src: asset-data-url("Pangolin-Regular.ttf") format("truetype");
+  font-family: "Museo Sans";
+  src: asset-data-url("MuseoSans_500.otf") format("opentype");
   font-weight: 500;
-  font-style: normal;
+}
+
+@font-face {
+  font-family: "Museo Sans";
+  src: asset-data-url("MuseoSans_100.otf") format("opentype");
+  font-weight: 100;
 }
 
 #content {
@@ -10,5 +15,5 @@
 }
 
 .pangolin {
-  font-family: "Pangolin";
+  font-family: "Museo Sans";
 }

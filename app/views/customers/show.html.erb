@@ -47,7 +47,7 @@
         <% @customer.invoices.each do |invoice| %>
           <tr class="clickable">
             <td class="clickable-invoice" id=<%= invoice.id %> data-href=<%= invoice_path %> ><%= invoice.name %></td>
-            <td class="clickable-invoice" id=<%= invoice.id %> data-href=<%= invoice_path %> ><%= invoice.created_at %></td>
+            <td class="clickable-invoice" id=<%= invoice.id %> data-href=<%= invoice_path %> ><%= formatted_date(invoice.updated_at) %></td>
             <td class="clickable-invoice" id=<%= invoice.id %> data-href=<%= invoice_path %> >bezahlt</td>
           </tr>
         <% end %>
