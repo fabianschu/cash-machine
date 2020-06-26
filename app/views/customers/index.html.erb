@@ -1,22 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Customers</h1>
+<h1>Kunden</h1>
 
 <table class="table table-hover">
   <thead>
     <tr>
       <th scope="col">Kunde</th>
-      <th scope="col"></th>
-      <th scope="col"></th>
+      <th scope="col">Zuletzt bearbeitet</th>
+      <th scope="col">Summe</th>
     </tr>
   </thead>
 
   <tbody>
     <% sort_by_last_update(@customers).each do |customer| %>
-      <tr scope="row">
-        <td><%= formal_customer(customer) %></td>
-        <td><%= link_to 'Anzeigen', customer %></td>
-        <td><%= link_to 'Löschen', customer, method: :delete, data: { confirm: 'Bist du sicher?' } %></td>
+      <tr scope="row" class="clickable">
+        <td class="clickable-customer" id=<%= customer.id %> data-href=<%= customer_path(customer) %> ><%= formal_customer(customer) %></td>
+        <td class="clickable-customer" id=<%= customer.id %> data-href=<%= customer_path(customer) %> ><%= customer.updated_at.strftime('%d.%m.%Y') %></td>
+        <td class="clickable-customer" id=<%= customer.id %> data-href=<%= customer_path(customer) %> ></td>
       </tr>
     <% end %> 
   </tbody>
