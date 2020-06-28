@@ -4,12 +4,8 @@
       <div class = "invoice-meta">
         <table>
           <tr>
-            <td class="invoice-meta-tag">Rechnung:</td>
-            <td><%= @invoice.name %></td>
-          </tr>
-          <tr>
-            <td class="invoice-meta-tag"></td>
-            <td></td>
+            <td class="invoice-meta-tag font-weight-bold">Rechnung:</td>
+            <td class="font-weight-bold"><%= @invoice.name %></td>
           </tr>
           <tr>
             <td class="invoice-meta-tag">Erstellt:</td>
@@ -20,8 +16,8 @@
             <td><%= formatted_date(@invoice.updated_at) %></td>
           </tr>
           <tr>
-            <td class="invoice-meta-tag">Total:</td>
-            <td></td>
+            <td class="invoice-meta-tag">Kunde:</td>
+            <td><%= link_to formal_customer(@customer), customer_path(@invoice.customer) %></td>
           </tr>
         </table>
       </div>
@@ -38,6 +34,9 @@
           <th>
             Stunden
           </th>
+          <th>
+            Preis
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -46,21 +45,19 @@
             <td class="clickable-position" id=<%= position.id %> data-href=<%= position_path %> ><%= position.name %></td>
             <td class="clickable-position" id=<%= position.id %> data-href=<%= position_path %> ><%= position.description %></td>
             <td class="clickable-position" id=<%= position.id %> data-href=<%= position_path %> ><%= position.hours %></td>
+            <td class="clickable-position" id=<%= position.id %> data-href=<%= position_path %> ><%= position_total(position.hours, @customer.hourly_rate) %></td>
           </tr>
         <% end %>
+        <tr>
+          <td colspan="4"><%= link_to 'Neue Position', new_invoice_position_path(@invoice) %></td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+          <td class="font-weight-bold">Total:</td>
+          <td><%= invoice_total(@invoice.positions) %></td>
+        </tr>
       </tbody>
     </table>
-    
 
-    
-      <h4>
-        Customer:
-      </h4>
-      <p><%= @customer.first_name %> <%= @customer.second_name %></p>
-      <p><%= @customer.street %> <br><%= @customer.zip %> <%= @customer.city %></p>
-    
-    
-    <%= link_to 'Neue Position', new_invoice_position_path(@invoice) %>
-    <%= link_to 'Zurück zum Kunden', customer_path(@invoice.customer) %>
   </div>
 </div>
