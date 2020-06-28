@@ -39,6 +39,9 @@
             Zuletzt bearbeitet
           </th>
           <th>
+            Total
+          </th>
+          <th>
             Status
           </th>
         </tr>
@@ -48,6 +51,7 @@
           <tr class="clickable">
             <td class="clickable-invoice" id=<%= invoice.id %> data-href=<%= invoice_path %> ><%= invoice.name %></td>
             <td class="clickable-invoice" id=<%= invoice.id %> data-href=<%= invoice_path %> ><%= formatted_date(invoice.updated_at) %></td>
+            <td class="clickable-invoice" id=<%= invoice.id %> data-href=<%= invoice_path %> ><%= invoice_total(invoice) %></td>
             <td class="clickable-invoice" id=<%= invoice.id %> data-href=<%= invoice_path %> >bezahlt</td>
           </tr>
         <% end %>
