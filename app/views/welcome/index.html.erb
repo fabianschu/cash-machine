@@ -1,0 +1,39 @@
+<h1>Welcome</h1>
+<div class="cus-content-container row">
+  <div class="card shadow cus-card col-sm-4 mr-auto">
+  <div class=" shadow cus-card">
+    <div class="card-header">
+      <strong>Zuletzt bearbeitete Kunden</strong>
+    </div>
+    <table class="table">
+      <thead>
+        <tr class="cus-table-header">
+          <th>
+            Kunde
+          </th>
+          <th>
+            Zuletzt bearbeitet
+          </th>
+          <th>
+            Total
+          </th>
+          <th>
+            Status
+          </th>
+        </tr>
+      </thead>
+            <tbody>
+        <% @customers.each do |customer| %>
+          <tr class="clickable">
+            <td class="" id=<%= customer.id %>><%= formal_customer(customer) %></td>
+            <td class="" id=<%= customer.id %> bla</td>
+            <td class="" id=<%= customer.id %> blub</td>
+            <td class="" id=<%= customer.id %> bezahlt</td>
+          </tr>
+        <% end %>
+        <tr>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>

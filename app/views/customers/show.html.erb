@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <div class="cus-content-container row">
-  <div class="card shadow cus-card col-sm-4 mr-auto">
+  <div class="card shadow col-sm-4 mr-auto cus-card">
     <div class="card-header">
       <strong><%= formal_customer(@customer) %></strong>
     </div>
@@ -21,7 +21,7 @@
       </li>
     </ul>
     <div class="card-body clickable" id="edit-customer" data-href=<%= edit_customer_path %>>
-      <%= link_to "Bearbeiten", edit_customer_path(@customer) %>
+      <!-- <%= link_to "Bearbeiten", edit_customer_path(@customer), {:class => "text-primary"} %> -->
     </div>
   </div>
 
@@ -48,7 +48,7 @@
       </thead>
       <tbody>
         <% @customer.invoices.each do |invoice| %>
-          <tr class="clickable">
+          <tr class="clickable text-primary">
             <td class="clickable-invoice" id=<%= invoice.id %> data-href=<%= invoice_path %> ><%= invoice.name %></td>
             <td class="clickable-invoice" id=<%= invoice.id %> data-href=<%= invoice_path %> ><%= formatted_date(invoice.updated_at) %></td>
             <td class="clickable-invoice" id=<%= invoice.id %> data-href=<%= invoice_path %> ><%= invoice_total(invoice) %></td>

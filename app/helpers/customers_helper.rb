@@ -1,5 +1,6 @@
 module CustomersHelper
   def formal_customer(customer)
+    puts customer
     if customer.company.empty?
       customer.first_name + ' ' + customer.second_name
     else

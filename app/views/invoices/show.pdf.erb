@@ -1,4 +1,5 @@
-<div class="customer_address">
-  <p class="pangolin"><%= @customer.company%></p>
-  <p><%= @customer.first_name %> <%= @customer.second_name %></p>
+<div class="customer-address">
+  <p class="customer-address-line"><%= formal_customer(@customer)%></p>
+  <p class="customer-address-line"><%= @customer.street%></p>
+  <p class="customer-address-line"><%= @customer.zip%> <%= @customer.city%></p>
 </div>

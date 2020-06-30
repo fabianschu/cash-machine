@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'customers#index'
+  root 'welcome#index'
   
   resources :customers, shallow: true do
     resources :invoices  do
