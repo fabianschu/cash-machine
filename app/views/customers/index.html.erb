@@ -1,10 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Kunden</h1>
-
+<div class='card shadow'>
 <table class="table table-hover">
+
   <thead>
-    <tr>
+    <tr class="cus-table-header">
       <th scope="col">Kunde</th>
       <th scope="col">Zuletzt bearbeitet</th>
     </tr>
@@ -17,8 +18,12 @@
         <td class="clickable-customer" id=<%= customer.id %> data-href=<%= customer_path(customer) %> ><%= customer.updated_at.strftime('%d.%m.%Y') %></td>
       </tr>
     <% end %> 
+    <tr>
+      <td colspan="2">
+        <%= link_to 'New Customer', new_customer_path %>
+      </td>
+    </tr>
   </tbody>
 </table>
 <br>
-
-<%= link_to 'New Customer', new_customer_path %>
+</div>

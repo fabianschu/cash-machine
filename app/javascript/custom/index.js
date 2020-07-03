@@ -15,4 +15,8 @@ document.addEventListener("click", (e) => {
   if (e.target.getAttribute("class") === "clickable-customer") {
     window.open(e.target.getAttribute("data-href"), "_self");
   }
+
+  if (e.target.getAttribute("class") === "clickable-position") {
+    window.open(e.target.getAttribute("data-href"), "_self");
+  }
 });

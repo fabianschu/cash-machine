@@ -58,6 +58,10 @@ class InvoicesController < ApplicationController
     end
   end
 
+  def new_generic
+    puts 'lololololol'
+  end
+
   private
     def invoice_params
       params.require(:invoice).permit(:name, :created_at, :updated_at)

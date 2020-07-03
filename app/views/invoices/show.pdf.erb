@@ -2,4 +2,27 @@
   <p class="customer-address-line"><%= formal_customer(@customer)%></p>
   <p class="customer-address-line"><%= @customer.street%></p>
   <p class="customer-address-line"><%= @customer.zip%> <%= @customer.city%></p>
+  <p class="customer-address-line"><%= @customer.country %></p>
+</div>
+
+<div> 
+    <p class="invoice-date">Rechnungssnummer</p>
+    <p class="invoice-date">Datum</p>
+</div>
+
+<div>
+  <h1><%= @invoice.name %></h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Projekt</th>
+        <th>Leistung</th>
+        <th>Stunden</th>
+        <th>Preis</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @invoice.positions.each do |position| %>
+    </tbody>
+  </table>
 </div>
