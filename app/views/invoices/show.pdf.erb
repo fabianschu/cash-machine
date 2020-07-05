@@ -1,7 +1,6 @@
 <div class="pdf-content">
-  <p style="font-family: 'Modak'">lol</p>
   <div class="pdf-logo-container ">
-    <img src="https://cdn.dribbble.com/users/11373/screenshots/994770/impala.png">
+    <%= image_tag wicked_pdf_asset_base64('logo.jpg') %>
   </div>
 
   <div class="pdf-own-address">
@@ -28,12 +27,14 @@
     <p class="pdf-customer-address-line"><%= @customer.country %></p>
   </div>
 
-  <div class="pdf-top-right-info bold"> 
-      <p class="pdf-invoice-date"><strong>Rechnungssnummer</strong></p>
-      <p class="pdf-invoice-date">Datum</p>
+  <div class="pdf-top-right-info light"> 
+      <p class="pdf-invoice-date">Rechnungssnummer <%= invoice_number(@invoice) %></p>
+      <p class="pdf-invoice-date"><%= today %></p>
   </div>
 
-  <div>
+  <div class="folding-mark"></div>
+
+  <div class="pdf-table-container">
     <h1 class="pdf-invoice-title bold"><%= @invoice.name %></h1>
     <table class="pdf-table">
       <thead>

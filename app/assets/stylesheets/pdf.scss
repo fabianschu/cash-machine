@@ -8,19 +8,11 @@
   src: asset-data-url("normal500.ttf") format("truetype");
 }
 
-// @font-face {
-//   font-family: "Modak";
-//   src: asset-data-url("Modak-Regular.ttf") format("truetype");
-// }
-
-// #content {
-//   // background-image: asset-data-url("lulz.jpg");
-// }
-
 .pdf-logo-container  {
   text-align: center;
+  margin-bottom: 30px;
   img {
-    height: 160px;
+    height: 75px;
   }
 }
 
@@ -37,14 +29,8 @@
   color: black;
 }
 
-.middot {
-  // font-size: 40px;
-  // line-height: ;
-  // border: 1px solid black;
-}
-
 .pdf-content {
-  padding: 0 20px;
+  padding: 60px 60px;
   p {
     line-height: 6px;
     font-size: 20px;
@@ -80,4 +66,21 @@
 
 .light {
   font-family: "light100";
+}
+
+.pic {
+  width: 300px;
+  height: 300px;
+}
+
+.folding-mark {
+  position: absolute;
+  top: 460px;
+  left: -15px;
+  width: 50px;
+  height: 1px;
+  background-color: black;
+}
+
+.pdf-table-container {
 }
