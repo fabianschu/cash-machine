@@ -40,7 +40,7 @@
       <thead>
         <tr class="bold">
           <th class="bold">Projekt</th>
-          <th>Leistung</th>
+          <th class="thick-horiz-borders">Leistung</th>
           <th>Stunden</th>
           <th>Preis</th>
         </tr>
@@ -49,14 +49,16 @@
         <% @invoice.positions.each do |position| %>
           <tr class="light">
             <td><%= position.name %></td>
-            <td><%= position.description %></td>
-            <td><%= number_with_precision(position.hours, precision: 1, strip_insignificant_zeros: true) %></td>
-            <td><%= number_with_precision(position_total(position), precision: 2, strip_insignificant_zeros: true) %></td>
+            <td class="thick-horiz-borders"><%= position.description %></td>
+            <td class="hours-tag"><%= number_with_precision(position.hours, precision: 1, strip_insignificant_zeros: true) %></td>
+            <td class="price-tag"><%= number_with_precision(position_total(position), precision: 2)%> €</td>
           </tr>
         <% end %>
           <tr>
-            <td colspan= "3">Gesamt</td>
-            <td><%= invoice_total(@invoice) %></td>
+            <td class="bold">Gesamt</td>
+            <td class="thick-horiz-borders"></td>
+            <td class="bold hours-tag">12</td>
+            <td class="price-tag bold"><%= number_with_precision(invoice_total(@invoice), precision: 2) %> €</td>
           </tr>
       </tbody>
     </table>

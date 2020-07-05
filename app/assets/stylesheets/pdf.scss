@@ -63,9 +63,11 @@ td {
   border-collapse: collapse;
   th,
   td {
-    text-align: left;
     border: 1px solid black;
-    border-collapse: collapse;
+  }
+  .thick-horiz-borders {
+    border-left: 2px solid black;
+    border-right: 2px solid black;
   }
 }
 
@@ -91,5 +93,13 @@ td {
   background-color: black;
 }
 
-.pdf-table-container {
+.price-tag {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: right;
+}
+
+.hours-tag {
+  text-align: center;
 }
