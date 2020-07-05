@@ -1,19 +1,83 @@
 @font-face {
-  font-family: "Museo Sans";
-  src: asset-data-url("MuseoSans_500.otf") format("opentype");
-  font-weight: 500;
+  font-family: "light100";
+  src: asset-data-url("light100.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: "Museo Sans";
-  src: asset-data-url("MuseoSans_100.otf") format("opentype");
-  font-weight: 100;
+  font-family: "normal500";
+  src: asset-data-url("normal500.ttf") format("truetype");
 }
 
-// #content {
-//   background-image: asset-data-url("lulz.jpg");
+// @font-face {
+//   font-family: "Modak";
+//   src: asset-data-url("Modak-Regular.ttf") format("truetype");
 // }
 
-.customer-address {
-  background-color: salmon;
+// #content {
+//   // background-image: asset-data-url("lulz.jpg");
+// }
+
+.pdf-logo-container  {
+  text-align: center;
+  img {
+    height: 160px;
+  }
+}
+
+.pdf-own-address {
+  text-align: center;
+  color: rgb(85, 160, 161);
+  margin-bottom: 40px;
+  .lol {
+    font-weight: 100;
+  }
+}
+
+.pdf-own-name {
+  color: black;
+}
+
+.middot {
+  // font-size: 40px;
+  // line-height: ;
+  // border: 1px solid black;
+}
+
+.pdf-content {
+  padding: 0 20px;
+  p {
+    line-height: 6px;
+    font-size: 20px;
+  }
+  h1 {
+    font-size: 22px;
+  }
+}
+
+.pdf-customer-address {
+  // background-color: salmon;
+}
+
+.pdf-top-right-info {
+  text-align: right;
+}
+
+.pdf-table {
+  width: 100%;
+  border: 1px solid black;
+  border-collapse: collapse;
+  th,
+  td {
+    text-align: left;
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+}
+
+.bold {
+  font-family: "normal500";
+}
+
+.light {
+  font-family: "light100";
 }

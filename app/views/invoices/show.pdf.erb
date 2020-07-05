@@ -1,28 +1,63 @@
-<div class="customer-address">
-  <p class="customer-address-line"><%= formal_customer(@customer)%></p>
-  <p class="customer-address-line"><%= @customer.street%></p>
-  <p class="customer-address-line"><%= @customer.zip%> <%= @customer.city%></p>
-  <p class="customer-address-line"><%= @customer.country %></p>
-</div>
+<div class="pdf-content">
+  <p style="font-family: 'Modak'">lol</p>
+  <div class="pdf-logo-container ">
+    <img src="https://cdn.dribbble.com/users/11373/screenshots/994770/impala.png">
+  </div>
 
-<div> 
-    <p class="invoice-date">Rechnungssnummer</p>
-    <p class="invoice-date">Datum</p>
-</div>
+  <div class="pdf-own-address">
+    <h1 class="pdf-own-name light"> 
+      <span>L E N A</span>
+      &nbsp;
+      <span>R I E G E R</span>
+    </h1>
+    <p>
+      <span class="lol">Konstantin-Lange Str. 64</span>
+      <span class="middot">&#183;</span>
+      <span>12103 Berlin</span>
+    </p>
+    <p>wurst@wurstikowski.design</p>
+    <p>+49 176 1234 5678</p>
+    <p></p>
+    <p></p>
+  </div>
 
-<div>
-  <h1><%= @invoice.name %></h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Projekt</th>
-        <th>Leistung</th>
-        <th>Stunden</th>
-        <th>Preis</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @invoice.positions.each do |position| %>
-    </tbody>
-  </table>
+  <div class="pdf-customer-address light">
+    <p class="pdf-customer-address-line"><%= formal_customer(@customer)%></p>
+    <p class="pdf-customer-address-line"><%= @customer.street%></p>
+    <p class="pdf-customer-address-line"><%= @customer.zip%> <%= @customer.city%></p>
+    <p class="pdf-customer-address-line"><%= @customer.country %></p>
+  </div>
+
+  <div class="pdf-top-right-info bold"> 
+      <p class="pdf-invoice-date"><strong>Rechnungssnummer</strong></p>
+      <p class="pdf-invoice-date">Datum</p>
+  </div>
+
+  <div>
+    <h1 class="pdf-invoice-title bold"><%= @invoice.name %></h1>
+    <table class="pdf-table">
+      <thead>
+        <tr class="bold">
+          <th class="bold">Projekt</th>
+          <th>Leistung</th>
+          <th>Stunden</th>
+          <th>Preis</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @invoice.positions.each do |position| %>
+          <tr class="light">
+            <td><%= position.name %></td>
+            <td><%= position.description %></td>
+            <td><%= number_with_precision(position.hours, precision: 1, strip_insignificant_zeros: true) %></td>
+            <td><%= number_with_precision(position_total(position), precision: 2, strip_insignificant_zeros: true) %></td>
+          </tr>
+        <% end %>
+          <tr>
+            <td colspan= "3">Gesamt</td>
+            <td><%= invoice_total(@invoice) %></td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
