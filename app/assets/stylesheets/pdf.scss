@@ -8,6 +8,15 @@
   src: asset-data-url("normal500.ttf") format("truetype");
 }
 
+td,
+th {
+  padding: 10px 6px;
+}
+
+td {
+  height: 50px;
+}
+
 .pdf-logo-container  {
   text-align: center;
   margin-bottom: 30px;
